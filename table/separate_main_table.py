@@ -30,7 +30,7 @@ def write_csv_file(table, data):
         print(f"{table}.csv is aleady write!")
 
 def main_init():
-    path = f"/Users/hongchengxi/Documents/dataBaseManage/data_purification/csv/total.csv"
+    path = f"/Users/hongchengxi/Documents/dataBaseManage/data_purification/csv/total/total.csv"
     data_json = main.read_json_file()
     data_json = data_json["table"]
 

@@ -34,6 +34,8 @@ class csvPurification:
             return None
         elif "事故類別" in row[0]:
             return None
+        elif "無或物(動物、堆置物)" in row[36]:
+            return None
         
         time_location = f"{row[2]}{row[3]}{row[4]}{row[6]}"
         if time_location in self.existing_time_location:

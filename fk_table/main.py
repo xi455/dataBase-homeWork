@@ -57,7 +57,7 @@ def handle_fk_table():
     for table, fields in fk_table_data.items():
         table_data = get_table_values(table, fields)
         if table_data:
-            create_fk_table(table, fields, table_data)
+            create_fk_table(fields, table_data)
 
 if __name__ == "__main__":
     handle_fk_table()
