@@ -25,7 +25,8 @@ def get_table_values(table, fields):
 
         for row in csv_reader:
             for index in table_title_index:
-                table_data_dict[str(index)].add(row[index])
+                if row[index]:
+                    table_data_dict[str(index)].add(row[index])
 
         table_data = [list(data) for data in table_data_dict.values()]
         
