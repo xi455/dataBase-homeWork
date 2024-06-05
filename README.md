@@ -7,3 +7,8 @@ We start with organizing_materials.py to summarize the total data for the year, 
 ### Installation
 To use the system, you need to install the following dependencies:
 - Python 3.x
+
+## Execution
+```
+cd data_purification && python main.py && cd ../table && python main.py && cd ../fk_table && python main.py && cd ../edit_table && python main.py && cd ../
+```

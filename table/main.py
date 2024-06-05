@@ -33,7 +33,7 @@ def write_csv_file(table, data):
 
 if __name__ == "__main__":
     separate_main_table.main_init()
-    path = f"/Users/hongchengxi/Documents/dataBaseManage/table/accident_records.csv"
+    path = f"/Users/hongchengxi/Documents/大學資料/資料庫管理/table/accident_records.csv"
 
     data = read_csv_file(path)
 

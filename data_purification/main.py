@@ -3,14 +3,14 @@ import csv
 import json
 
 class csvPath:
-    defult_path = "/Users/hongchengxi/Documents/dataBaseManage/data_purification"
+    defult_path = "/Users/hongchengxi/Documents/大學資料/資料庫管理/data_purification"
     total_folder_path = f"{defult_path}/csv/total"
     vintages_path = f"{total_folder_path}/vintages"
     
 
 class jsonHandle:
     def __init__(self) -> None:
-        self.json_path = "/Users/hongchengxi/Documents/dataBaseManage/dataBase.json"
+        self.json_path = "/Users/hongchengxi/Documents/大學資料/資料庫管理/dataBase.json"
 
     def get_json_data(self):
         with open(self.json_path, 'r', encoding="UTF-8") as jsonfile:
@@ -33,6 +33,8 @@ class csvPurification:
         if "資料提供日期" in row[0]:
             return None
         elif "事故類別" in row[0]:
+            return None
+        elif "無或物(動物、堆置物)" in row[36]:
             return None
         
         time_location = f"{row[2]}{row[3]}{row[4]}{row[6]}"

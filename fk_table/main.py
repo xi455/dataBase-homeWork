@@ -25,7 +25,8 @@ def get_table_values(table, fields):
 
         for row in csv_reader:
             for index in table_title_index:
-                table_data_dict[str(index)].add(row[index])
+                if row[index]:
+                    table_data_dict[str(index)].add(row[index])
 
         table_data = [list(data) for data in table_data_dict.values()]
         
@@ -57,7 +58,7 @@ def handle_fk_table():
     for table, fields in fk_table_data.items():
         table_data = get_table_values(table, fields)
         if table_data:
-            create_fk_table(table, fields, table_data)
+            create_fk_table(fields, table_data)
 
 if __name__ == "__main__":
     handle_fk_table()

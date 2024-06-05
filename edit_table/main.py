@@ -7,7 +7,7 @@ import csv
 from until import main
 
 def get_fk_table_data(fk_table_title):
-    with open(f"/Users/hongchengxi/Documents/dataBaseManage/fk_table/{fk_table_title}.csv", "r") as csv_file:
+    with open(f"/Users/hongchengxi/Documents/大學資料/資料庫管理/fk_table/{fk_table_title}.csv", "r") as csv_file:
         reader = csv.reader(csv_file)
         next(reader)
         data = {row[1]: row[0] for row in reader}
@@ -17,7 +17,7 @@ def get_fk_table_data(fk_table_title):
 def read_handle_table_data(table_data_dict):
     for table, field_index in table_data_dict.items():
         table_data = list()
-        with open(f"/Users/hongchengxi/Documents/dataBaseManage/table/{table}.csv", "r") as csv_file:
+        with open(f"/Users/hongchengxi/Documents/大學資料/資料庫管理/table/{table}.csv", "r") as csv_file:
             reader = csv.reader(csv_file)
             table_title = next(reader)
 
@@ -26,13 +26,14 @@ def read_handle_table_data(table_data_dict):
                 table_data.append([row[index] for index in range(len(row))])
 
                 for index in field_index.keys():
-                    table_data[i][index] = field_index[index][row[index]]
+                    if table_data[i][index]:
+                        table_data[i][index] = field_index[index][row[index]]
 
             table_data.insert(0, table_title)
             edit_table_data(table, table_data)
 
 def edit_table_data(table, table_data):
-    with open(f"/Users/hongchengxi/Documents/dataBaseManage/table/{table}.csv", "w") as csv_file:
+    with open(f"/Users/hongchengxi/Documents/大學資料/資料庫管理/table/{table}.csv", "w") as csv_file:
         csvwrite = csv.writer(csv_file)
         for row in table_data:
             csvwrite.writerow(row)
