@@ -3,14 +3,14 @@ import csv
 import json
 
 class csvPath:
-    defult_path = "/Users/hongchengxi/Documents/大學資料/資料庫管理/data_purification"
+    defult_path = "/Users/hongchengxi/Documents/大學資料/資料庫管理實作/資料庫管理/data_purification"
     total_folder_path = f"{defult_path}/csv/total"
     vintages_path = f"{total_folder_path}/vintages"
     
 
 class jsonHandle:
     def __init__(self) -> None:
-        self.json_path = "/Users/hongchengxi/Documents/大學資料/資料庫管理/dataBase.json"
+        self.json_path = "/Users/hongchengxi/Documents/大學資料/資料庫管理實作/資料庫管理/dataBase.json"
 
     def get_json_data(self):
         with open(self.json_path, 'r', encoding="UTF-8") as jsonfile:
