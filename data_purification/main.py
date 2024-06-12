@@ -3,17 +3,17 @@ import csv
 import json
 
 class csvPath:
-    defult_path = "/Users/hongchengxi/Documents/大學資料/資料庫管理實作/資料庫管理/data_purification"
+    defult_path = "/Users/hongchengxi/Documents/dataBaseManage/資料庫管理/data_purification"
     total_folder_path = f"{defult_path}/csv/total"
     vintages_path = f"{total_folder_path}/vintages"
     
 
 class jsonHandle:
     def __init__(self) -> None:
-        self.json_path = "/Users/hongchengxi/Documents/大學資料/資料庫管理實作/資料庫管理/dataBase.json"
+        self.json_path = "/Users/hongchengxi/Documents/dataBaseManage/資料庫管理/dataBase.json"
 
     def get_json_data(self):
-        with open(self.json_path, 'r', encoding="UTF-8") as jsonfile:
+        with open(self.json_path, 'r', encoding="utf-8") as jsonfile:
             data = json.load(jsonfile)
             return data
 
@@ -25,6 +25,8 @@ class csvPurification:
     def ensure_dir(self, directory_path):
         if not os.path.exists(directory_path):
             os.makedirs(directory_path)
+        
+        print(f"{directory_path} is already exist.")
 
     def ensure_csv_folder(self, folder_path):
         assert os.path.exists(folder_path), f"{folder_path} not found."
@@ -96,7 +98,12 @@ class csvPurification:
 
         csv_data = list()
         for file_name in file_names:
+
+            if file_name == ".gitkeep":
+                continue
+
             with open(f"{vintages_path}/{file_name}", "r", encoding="utf-8") as csvfile:
+                print(f"{vintages_path}/{file_name} is reading...")
                 csv_reader = csv.reader(csvfile)
                 next(csv_reader)
 
@@ -116,9 +123,9 @@ class csvPurification:
 
 if __name__ == "__main__":
     purification = csvPurification()
-    for year in range(109, 112):
-        purification.init_csv_files_in_folder(f"{csvPath.vintages_path}/new{year}.csv")
-        purification.read_csv_files_in_folder(year)
+    # for year in range(109, 112):
+    #     purification.init_csv_files_in_folder(f"{csvPath.vintages_path}/new{year}.csv")
+    #     purification.read_csv_files_in_folder(year)
 
     purification.init_csv_files_in_folder(f"{csvPath.total_folder_path}/total.csv")
     purification.ensure_dir(csvPath.vintages_path)

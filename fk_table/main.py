@@ -14,7 +14,7 @@ def get_table_title_index(table_title, fields):
     return table_title_index
 
 def get_table_values(table, fields):
-    with open(f"../table/{table}.csv", "r", newline="", encoding="UTF-8") as csvfile:
+    with open(f"../table/{table}.csv", "r", newline="", encoding="utf-8") as csvfile:
         csv_reader = csv.reader(csvfile)
         table_title = next(csv_reader)
         table_title_index = get_table_title_index(table_title, fields)
@@ -37,7 +37,7 @@ def get_table_values(table, fields):
     
 def create_fk_table(fields, table_data):
     for fk_table_name, data in zip(fields.keys(), table_data):
-        with open(f"{fk_table_name}.csv", "w", newline="", encoding="UTF-8") as csvfile:
+        with open(f"{fk_table_name}.csv", "w", newline="", encoding="utf-8") as csvfile:
             csv_writer = csv.writer(csvfile)
 
             data.insert(0, fields[fk_table_name])

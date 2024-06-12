@@ -6,7 +6,7 @@ def read_json_file():
     if datajson is not None:
         return datajson
 
-    with open("/Users/hongchengxi/Documents/大學資料/資料庫管理實作/資料庫管理/dataBase.json", 'r') as file:
+    with open("/Users/hongchengxi/Documents/dataBaseManage/資料庫管理/dataBase.json", 'r') as file:
         datajson = json.load(file)
 
     return datajson

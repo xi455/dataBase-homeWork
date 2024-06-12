@@ -10,7 +10,7 @@ from until import main
 # 读取CSV文件示例
 def read_csv_file(path, fields):
     data = list()
-    with open(path, 'r', newline='', encoding="UTF-8") as csvfile:
+    with open(path, 'r', newline='', encoding="utf-8") as csvfile:
         csv_reader = csv.reader(csvfile)
         
         for row in csv_reader:
@@ -19,7 +19,7 @@ def read_csv_file(path, fields):
     return data
 
 def write_csv_file(table, data):
-    with open(f"{table}.csv", 'w', newline='', encoding="UTF-8") as csvfile:
+    with open(f"{table}.csv", 'w', newline='', encoding="utf-8") as csvfile:
         csvwrite = csv.writer(csvfile)
         for index, row in enumerate(data, start=0):
             if index == 0:
@@ -30,7 +30,7 @@ def write_csv_file(table, data):
         print(f"{table}.csv is aleady write!")
 
 def main_init():
-    path = f"/Users/hongchengxi/Documents/大學資料/資料庫管理實作/資料庫管理/data_purification/csv/total/total.csv"
+    path = f"/Users/hongchengxi/Documents/dataBaseManage/資料庫管理/data_purification/csv/total/total.csv"
     data_json = main.read_json_file()
     data_json = data_json["table"]
 
