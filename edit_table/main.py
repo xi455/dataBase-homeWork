@@ -6,6 +6,47 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import csv
 from until import main
 
+def clear_table_id():
+    table_path = "/Users/hongchengxi/Documents/dataBaseManage/資料庫管理/table"
+    table_files = os.listdir(table_path)
+
+    for table in table_files:
+        if table == ".DS_Store" or table == "__init__.py" or table == "__pycache__" or table == "main.py" or table == "separate_main_table.py" or table == "main.py":
+            continue
+
+        with open(f"{table_path}/{table}", "r") as csv_file:
+            reader = csv.reader(csv_file)
+            table_data = [row for row in reader]
+
+        with open(f"{table_path}/{table}", "w") as csv_file:
+            writer = csv.writer(csv_file)
+            for index, row in enumerate(table_data):
+                # if index == 0:
+                #     row[0] = "id"
+                writer.writerow(row[1:])
+
+        print(f"{table} is aleady clear id!")
+
+    table_path = "/Users/hongchengxi/Documents/dataBaseManage/資料庫管理/fk_table"
+    table_files = os.listdir(table_path)
+
+    for table in table_files:
+        if table == ".DS_Store" or table == "__init__.py" or table == "__pycache__" or table == "main.py" or table == "separate_main_table.py" or table == "main.py":
+            continue
+
+        with open(f"{table_path}/{table}", "r") as csv_file:
+            reader = csv.reader(csv_file)
+            table_data = [row for row in reader]
+
+        with open(f"{table_path}/{table}", "w") as csv_file:
+            writer = csv.writer(csv_file)
+            for index, row in enumerate(table_data):
+                # if index == 0:
+                #     row[0] = "id"
+                writer.writerow(row[1:])
+
+        print(f"{table} is aleady clear id!")
+
 def get_fk_table_data(fk_table_title):
     with open(f"/Users/hongchengxi/Documents/dataBaseManage/資料庫管理/fk_table/{fk_table_title}.csv", "r") as csv_file:
         reader = csv.reader(csv_file)
@@ -66,3 +107,5 @@ if __name__ == "__main__":
                 table_data_dict_2[table][data_table_dict_title_list.index(key) + 2] = fields
 
     read_handle_table_data(table_data_dict_2)
+
+    clear_table_id()

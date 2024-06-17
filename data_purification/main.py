@@ -123,9 +123,9 @@ class csvPurification:
 
 if __name__ == "__main__":
     purification = csvPurification()
-    # for year in range(109, 112):
-    #     purification.init_csv_files_in_folder(f"{csvPath.vintages_path}/new{year}.csv")
-    #     purification.read_csv_files_in_folder(year)
+    for year in range(109, 112):
+        purification.init_csv_files_in_folder(f"{csvPath.vintages_path}/new{year}.csv")
+        purification.read_csv_files_in_folder(year)
 
     purification.init_csv_files_in_folder(f"{csvPath.total_folder_path}/total.csv")
     purification.ensure_dir(csvPath.vintages_path)
