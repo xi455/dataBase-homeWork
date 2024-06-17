@@ -4,6 +4,7 @@
 *.csv
 *.zip
 .DS_Store
+outfile.sql
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
